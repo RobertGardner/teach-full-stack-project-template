@@ -10,6 +10,11 @@
     "eslint:recommended",
     "standard"
   ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
     "semi": [
       "error",
@@ -47,11 +52,6 @@
       "files": [
         "**/*.jsx"
       ],
-      "settings": {
-        "react": {
-          "version": "detect"
-        }
-      },
       "rules": {
         "react/prop-types": 0
       }
