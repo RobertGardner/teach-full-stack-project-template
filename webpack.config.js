@@ -34,6 +34,7 @@ module.exports = {
     port: process.env.DEV_SERVER_PORT,
     publicPath: '/',
     contentBase: serverPublicPath,
+    stats: 'minimal',
     watchContentBase: true,
     proxy: {
       '/api': `http://localhost:${process.env.PORT}`
