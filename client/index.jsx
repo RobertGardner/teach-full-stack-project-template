@@ -1,8 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import App from './app';
 
-ReactDOM.render(
-  <App />,
-  document.querySelector('#root')
-);
+import.meta.webpackHot?.accept();
+
+const root =
+  window.APP_ROOT ??=
+  ReactDOM.createRoot(document.querySelector('#root'));
+
+root.render(<App />);
