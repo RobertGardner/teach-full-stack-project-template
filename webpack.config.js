@@ -1,48 +1,47 @@
 require('dotenv/config');
 const path = require('path');
+const webpack = require('webpack');
 
 const clientPath = path.join(__dirname, 'client');
-const serverPublicPath = path.join(__dirname, 'server/public');
+const serverPublicPath = path.join(__dirname, 'server', 'public');
+
+const isDevelopment = process.env.NODE_ENV === 'development';
 
 module.exports = {
+  mode: process.env.NODE_ENV,
+  entry: [
+    clientPath,
+    isDevelopment && 'webpack-hot-middleware/client?timeout=1000'
+  ].filter(Boolean),
   resolve: {
     extensions: ['.js', '.jsx']
   },
-  entry: clientPath,
   output: {
     path: serverPublicPath
   },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
-        include: clientPath,
+        test: /\.jsx$/,
         use: {
           loader: 'babel-loader',
           options: {
             plugins: [
               '@babel/plugin-transform-react-jsx'
+            ],
+            presets: [
+              '@babel/preset-env'
             ]
           }
         }
       }
     ]
   },
+  stats: 'minimal',
   devtool: 'source-map',
-  devServer: {
-    host: '0.0.0.0',
-    port: process.env.DEV_SERVER_PORT,
-    static: {
-      directory: serverPublicPath,
-      publicPath: '/',
-      watch: true
-    },
-    proxy: {
-      '/api': `http://localhost:${process.env.PORT}`
-    }
-  },
-  stats: 'summary',
-  performance: {
-    hints: false
-  }
+  plugins: [
+    new webpack.EnvironmentPlugin([]),
+    isDevelopment && new webpack.HotModuleReplacementPlugin(),
+    isDevelopment && new webpack.NoEmitOnErrorsPlugin()
+  ].filter(Boolean)
 };
