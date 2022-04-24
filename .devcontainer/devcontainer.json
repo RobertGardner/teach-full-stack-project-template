@@ -1,7 +1,9 @@
 {
-  "name": "code-solutions",
+  "name": "final-project",
   "image": "thebearingedge/code-container",
   "mounts": [
+    // share ssh config. remove this if you don't want to use a vscode user
+    "source=${localEnv:HOME}/.ssh,target=/home/dev/.ssh,type=bind",
     // get access to the host docker daemon
     "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
     // mount Git configuration
@@ -19,8 +21,9 @@
   "extensions": [
     "thebearingedge.lfz-code"
   ],
-  "remoteUser": "dev",
-  "postCreateCommand": "test -f package-lock.json && npm ci",
+  "remoteUser": "vscode",
+  "containerUser": "vscode",
+  "postCreateCommand": "./.devcontainer/post-create-command.sh",
   "settings": {
     "css.validate": false,
     "editor.codeActionsOnSave": {
@@ -73,7 +76,7 @@
     "terminal.integrated.profiles.linux": {
       "bash": {
         "icon": "terminal-bash",
-        "path": "/usr/bin/bash"
+        "path": "/bin/bash"
       }
     },
     "terminal.integrated.tabs.enabled": false,
