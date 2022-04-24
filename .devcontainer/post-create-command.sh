@@ -2,7 +2,7 @@
 
 set -e
 
-echo 'removing node_modules '
+echo 'removing node_modules'
 sudo rm -rf ./node_modules
 
 echo 'changing file ownership'
