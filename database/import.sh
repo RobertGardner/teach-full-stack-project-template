@@ -2,7 +2,19 @@
 
 set -e
 
+if [ -f "$PWD"/.env ]; then
 # shellcheck source=/dev/null
-test -f .env && . .env
+  . "$PWD"/.env
+else
+  echo 'no .env file found'
+  exit 1
+fi
 
-psql "$DATABASE_URL" -f database/schema.sql -f database/data.sql
+if [ -n "$DATABASE_URL" ]; then
+  psql "$DATABASE_URL" \
+    -f "$PWD"/database/schema.sql \
+    -f "$PWD"/database/data.sql
+else
+  echo 'no DATABASE_URL variable set'
+  exit 1
+fi
