@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom/client';
 import App from './app';
 
 import.meta.webpackHot?.accept();
+import.meta.webpackHot?.dispose(() => root.unmount());
 
-const root =
-  window.APP_ROOT ??=
-  ReactDOM.createRoot(document.querySelector('#root'));
+const root = ReactDOM.createRoot(document.querySelector('#root'));
 
 root.render(<App />);
