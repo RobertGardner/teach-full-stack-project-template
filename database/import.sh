@@ -15,6 +15,6 @@ if [ -n "$DATABASE_URL" ]; then
     -f "$PWD"/database/schema.sql \
     -f "$PWD"/database/data.sql
 else
-  echo 'no DATABASE_URL variable set'
+  echo 'no DATABASE_URL environment variable set'
   exit 1
 fi

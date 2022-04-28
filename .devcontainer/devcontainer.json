@@ -1,16 +1,16 @@
 {
-  "name": "final-project",
+  "name": "${localWorkspaceFolderBasename}",
   "image": "thebearingedge/code-container",
   "mounts": [
     // share ssh config. remove this if you don't want to use a vscode user
-    "source=${localEnv:HOME}/.ssh,target=/home/dev/.ssh,type=bind",
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/dev/.ssh,type=bind",
     // get access to the host docker daemon
     "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
     // mount Git configuration
     "source=${localEnv:HOME}${localEnv:USERPROFILE}/.gitconfig,target=/home/dev/.gitconfig,type=bind"
   ],
   "appPort": [
-    80, // apache/nginx
+    80,   // apache/nginx
     3000, // node
     5000, // flask
     8081, // pgweb
@@ -64,6 +64,7 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
+    "gitlens.codeLens.enabled": false,
     "javascript.suggest.autoImports": false,
     "javascript.suggestionActions.enabled": false,
     "javascript.updateImportsOnFileMove.enabled": "never",

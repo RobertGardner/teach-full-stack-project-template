@@ -8,7 +8,7 @@
     "start": "node .",
     "dev": "nodemon .",
     "build": "webpack",
-    "db:import": "./database/import.sh",
+    "db:import": "sh database/import.sh",
     "prepare": "husky install"
   },
   "dependencies": {
