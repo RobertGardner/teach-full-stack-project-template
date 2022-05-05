@@ -2,19 +2,24 @@
 
 set -e
 
-echo 'removing node_modules'
+echo 'removing node_modules '
 sudo rm -rf ./node_modules
 
-echo 'changing file ownership'
-sudo chown -R dev:dev .
+if [ -d /home/dev/.ssh ]; then
+  echo 'setting ssh file permissions'
+  sudo chown -R dev:dev /home/dev/.ssh
+  sudo chmod 600 /home/dev/.ssh/*
+  sudo chmod 644 /home/dev/.ssh/*.pub
+fi
 
-echo 'changing file permissions'
+echo 'changing project file permissions'
+sudo chown -R dev:dev .
 find . \( -type d -o -type f \) -exec sudo -u dev chmod g+w {} \;
 
 echo 'changing default file acl'
 sudo -u dev setfacl -Rm d:g:dev:rw .
 
-echo 'marking safe git repository'
+echo 'marking safe git repository for vscode user'
 git config --global safe.directory "$(pwd)"
 
 echo 'installing node_modules'
