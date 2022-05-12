@@ -5,6 +5,7 @@ import App from './app';
 import.meta.webpackHot?.accept();
 import.meta.webpackHot?.dispose(() => root.unmount());
 
-const root = ReactDOM.createRoot(document.querySelector('#root'));
+const container = document.querySelector('#root');
+const root = ReactDOM.createRoot(container);
 
 root.render(<App />);
