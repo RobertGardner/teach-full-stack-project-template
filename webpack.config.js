@@ -1,6 +1,7 @@
 require('dotenv/config');
 const path = require('path');
 const webpack = require('webpack');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 const clientPath = path.join(__dirname, 'client');
 const serverPublicPath = path.join(__dirname, 'server', 'public');
@@ -27,22 +28,24 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            plugins: [
-              '@babel/plugin-transform-react-jsx'
-            ],
             presets: [
               '@babel/preset-env'
-            ]
+            ],
+            plugins: [
+              '@babel/plugin-transform-react-jsx',
+              isDevelopment && 'react-refresh/babel'
+            ].filter(Boolean)
           }
         }
       }
     ]
   },
   stats: 'minimal',
-  devtool: 'source-map',
+  devtool: 'cheap-module-source-map',
   plugins: [
     new webpack.EnvironmentPlugin([]),
-    isDevelopment && new webpack.HotModuleReplacementPlugin(),
-    isDevelopment && new webpack.NoEmitOnErrorsPlugin()
+    isDevelopment && new ReactRefreshWebpackPlugin(),
+    isDevelopment && new webpack.NoEmitOnErrorsPlugin(),
+    isDevelopment && new webpack.HotModuleReplacementPlugin()
   ].filter(Boolean)
 };
