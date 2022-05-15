@@ -23,5 +23,5 @@
   ],
   "remoteUser": "vscode",
   "containerUser": "vscode",
-  "postCreateCommand": "sh .devcontainer/post-create-command.sh"
+  "postCreateCommand": "curl -fsSL https://raw.githubusercontent.com/thebearingedge/code-container/main/post-create-command.sh | sh"
 }
