@@ -41,7 +41,7 @@ module.exports = {
     ]
   },
   stats: 'minimal',
-  devtool: 'cheap-module-source-map',
+  devtool: isDevelopment ? 'cheap-module-source-map' : 'source-map',
   plugins: [
     new webpack.EnvironmentPlugin([]),
     isDevelopment && new ReactRefreshWebpackPlugin(),
