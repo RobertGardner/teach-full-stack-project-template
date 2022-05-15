@@ -1,15 +1,17 @@
 {
   "name": "${containerWorkspaceFolderBasename}",
-  "image": "thebearingedge/code-container",
+  "image": "thebearingedge/code-container:latest",
   "mounts": [
-    // persist postgres data
-    "target=/var/lib/postgresql",
     // mount host docker socket
     "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
     // mount ssh config
     "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/dev/.ssh,type=bind",
     // mount git config
-    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.gitconfig,target=/home/dev/.gitconfig,type=bind"
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.gitconfig,target=/home/dev/.gitconfig,type=bind",
+    // persist postgres data
+    "source=final-project-db,target=/var/lib/postgresql",
+    // persist lfz-code extensions
+    "source=final-project-extensions,target=/home/vscode/.vscode-server/extensions"
   ],
   "appPort": [
     3000, // node
