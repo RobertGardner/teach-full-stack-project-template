@@ -37,6 +37,13 @@ module.exports = {
             ].filter(Boolean)
           }
         }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
       }
     ]
   },
