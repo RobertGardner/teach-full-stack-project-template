@@ -10,6 +10,7 @@ services:
       PGPASSWORD: dev
       PGDATABASE: dev
     volumes:
+      - home_dev:/home/dev
       - /var/run/docker.sock:/var/run/docker.sock
       - vscode_extensions:/home/dev/.vscode-server/extensions
     ports:
@@ -39,5 +40,6 @@ services:
 
 volumes:
 
+  home_dev:
   postgres_data:
   vscode_extensions:
