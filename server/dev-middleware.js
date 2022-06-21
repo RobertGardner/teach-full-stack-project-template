@@ -11,6 +11,7 @@ module.exports = function devMiddleware(publicPath) {
   return [
     require('connect-livereload')(),
     require('webpack-dev-middleware')(webpack),
-    require('webpack-hot-middleware')(webpack)
+    require('webpack-hot-middleware')(webpack),
+    require('express').static(publicPath)
   ];
 };

@@ -8,6 +8,7 @@
     "server/public/"
   ],
   "events": {
-    "start": "node -e 'console.clear()'"
+    "start": "node -e 'console.clear()'",
+    "restart": "node -e 'console.clear()'"
   }
 }

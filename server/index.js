@@ -8,9 +8,9 @@ const publicPath = path.join(__dirname, 'public');
 
 if (process.env.NODE_ENV === 'development') {
   app.use(require('./dev-middleware')(publicPath));
+} else {
+  app.use(express.static(publicPath));
 }
-
-app.use(express.static(publicPath));
 
 app.get('/api/hello', (req, res) => {
   res.json({ hello: 'world' });
