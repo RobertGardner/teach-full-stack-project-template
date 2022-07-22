@@ -22,11 +22,11 @@ title: "Feature: User can "
 
 <!-- drag and drop your screenshots below this line -->
 
-## ✅ Task List
+## ✅ Task Lists
 
-> ##### Commit checklist for tasks needed to complete the feature.
+> ##### Commit checklists for tasks needed to complete the feature.
 
-### 🐘 Database
+### 🐘 Database Tasks
 
 <!-- add as many items as you need -->
 <!-- delete this section if not applicable -->
@@ -34,7 +34,7 @@ title: "Feature: User can "
 - [ ] Update `schema.sql` to ...
 - [ ] Update `data.sql` to ...
 
-### ☁️ Server
+### ☁️ Server Tasks
 
 <!-- add as many items as you need -->
 <!-- delete this section if not applicable -->
@@ -43,7 +43,7 @@ title: "Feature: User can "
 - [ ] Test with HTTPie
 - [ ] Handle all errors and respond to the client
 
-### ⚡ Client
+### ⚡ Client Tasks
 
 <!-- add as many items as you need -->
 <!-- delete this section if not applicable -->
@@ -51,7 +51,7 @@ title: "Feature: User can "
 - [ ] Create a component to ...
 - [ ] Update component to ...
 
-### 🧑‍⚕️ Clean Up
+### 🧑‍⚕️ Clean Up Tasks
 
 - [ ] ... <!-- add as many items as you need -->
 - [ ] ...
