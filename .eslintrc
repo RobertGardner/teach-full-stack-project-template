@@ -75,13 +75,16 @@
             "checkAttributes": true
           }
         ],
+        "react/no-this-in-sfc": [
+          "error"
+        ],
+        "react/jsx-no-useless-fragment": [
+          "error"
+        ],
         "react/self-closing-comp": [
           "error"
         ],
         "react/style-prop-object": [
-          "error"
-        ],
-        "react/no-this-in-sfc": [
           "error"
         ]
       }
