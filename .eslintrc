@@ -68,6 +68,13 @@
           "error",
           "never"
         ],
+        "react/jsx-indent": [
+          "error",
+          2,
+          {
+            "checkAttributes": true
+          }
+        ],
         "react/self-closing-comp": [
           "error",
           {
