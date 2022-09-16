@@ -76,11 +76,7 @@
           }
         ],
         "react/self-closing-comp": [
-          "error",
-          {
-            "html": false,
-            "component": true
-          }
+          "error"
         ],
         "react/style-prop-object": [
           "error"
