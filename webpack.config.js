@@ -48,6 +48,9 @@ module.exports = {
     ]
   },
   stats: 'minimal',
+  performance: {
+    hints: false
+  },
   devtool: isDevelopment ? 'cheap-module-source-map' : 'source-map',
   plugins: [
     new webpack.EnvironmentPlugin([]),
