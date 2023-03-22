@@ -16,22 +16,9 @@
     }
   },
   "rules": {
-    "arrow-parens": [
-      "error",
-      "as-needed"
-    ],
     "curly": [
       "error",
       "multi-line"
-    ],
-    "no-console": [
-      "error",
-      {
-        "allow": [
-          "warn",
-          "error"
-        ]
-      }
     ],
     "no-restricted-globals": [
       "error",

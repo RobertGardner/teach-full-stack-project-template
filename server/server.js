@@ -1,11 +1,13 @@
-require('dotenv/config');
-const express = require('express');
-const staticMiddleware = require('./static-middleware');
-const errorMiddleware = require('./error-middleware');
+import 'dotenv/config';
+import express from 'express';
+import cors from 'cors';
+import errorMiddleware from './lib/error-middleware.js';
 
 const app = express();
 
-app.use(staticMiddleware);
+app.use(cors({ origin: '*' }));
+app.use(express.json());
+app.use(express.static('public'));
 
 app.get('/api/hello', (req, res) => {
   res.json({ hello: 'world' });
