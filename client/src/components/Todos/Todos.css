@@ -1,0 +1,9 @@
+.Todos {
+  list-style: none;
+  padding: 0;
+}
+
+.Todos li {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}

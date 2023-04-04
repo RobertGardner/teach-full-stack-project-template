@@ -1,0 +1,27 @@
+import React, { useEffect, useState } from 'react';
+import './Todos.css';
+
+export default function Todos() {
+  const [ todos, setTodos ] = useState([]);
+
+  useEffect(function() {
+    async function getTodos() {
+      const resp = await fetch('/api/todos');
+      const todos = await resp.json();
+
+      setTodos(todos);
+    }
+
+    getTodos();
+  });
+
+  return (
+    <ul className="Todos">
+      {
+        todos.map(({ task, todoId }) => (
+          <li key={todoId}>{task}</li>
+        ))
+      }
+    </ul>
+  );
+}

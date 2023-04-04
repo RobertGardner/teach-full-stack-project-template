@@ -1,17 +1,27 @@
-import 'dotenv/config';
+import dotenv from 'dotenv';
+dotenv.config();
 import express from 'express';
-import cors from 'cors';
 import errorMiddleware from './lib/error-middleware.js';
+import db from './db.js';
 
 const app = express();
 
-app.use(cors({ origin: '*' }));
+app.use(express.static('client/build'));
 app.use(express.json());
-app.use(express.static('public'));
 
 app.get('/api/hello', (req, res) => {
   res.json({ hello: 'world' });
 });
+
+app.get('/api/todos', async (req, res) => {
+  const sql = `
+    select * from todos;
+  `;
+
+  const { rows: todos } = await db.query(sql);
+
+  res.json(todos);
+})
 
 app.use(errorMiddleware);
 
