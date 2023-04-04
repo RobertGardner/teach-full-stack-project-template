@@ -1,5 +1,3 @@
-import dotenv from 'dotenv';
-dotenv.config();
 import pg from 'pg';
 
 export default new pg.Pool({
