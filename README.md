@@ -4,11 +4,17 @@ A full stack JavaScript solo project.
 
 ## Getting Started
 
-Create a React app named `client`.
-    ```sh
-    npx create-react-app client
-    ```
+#### Use this template to create a new repo on your GitHub account
 
-Use `npm install` from the `server` directory.
+1. Click green `Use this template` button, select `Create a new repository`
+    1. Under `Owner` select your username
+    1. Give your repoitory a name
+    1. (Optional) Add a description
+    1. Leave repository as `Public`
+    1. **DO NOT** Include all branches
+    1. Click green `Create repository from template` button
 
-Create the database (you will need to provide the schema and data) using `npm run db:import`.
+#### Clone Newly created repo into `lfz-code`
+
+1. From your newly created repo on GitHub, click the green `<> Code` button, then copy **SSH** URL
+1. Open `lfz-code`
