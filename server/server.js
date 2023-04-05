@@ -5,24 +5,23 @@ import db from './db.js';
 
 const app = express();
 
-console.log("PORT:", process.env.PORT);
-
 app.use(express.static('client/build'));
 app.use(express.json());
 
 app.get('/api/hello', (req, res) => {
-  res.json({ hello: 'world' });
+  res.json({ message: 'Hello World!' });
 });
 
-app.get('/api/todos', async (req, res) => {
+// Example route with db query
+app.get('/api/example', async (req, res) => {
   const sql = `
-    select * from todos;
+    select * from "yourTable";
   `;
 
-  const { rows: todos } = await db.query(sql);
+  const result = await db.query(sql);
 
-  res.json(todos);
-})
+  res.json(result.rows);
+});
 
 app.use(errorMiddleware);
 
