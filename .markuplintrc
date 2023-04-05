@@ -12,7 +12,7 @@
     "landmark-roles": true,
     "required-h1": false,
     "wai-aria": true,
-    "class-naming": "/.+/i",
+    "class-naming": "/.+/",
     "attr-equal-space-after": true,
     "attr-equal-space-before": true,
     "attr-spacing": true,
