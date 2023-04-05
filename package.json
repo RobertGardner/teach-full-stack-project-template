@@ -10,7 +10,7 @@
     "dev": "npm-run-all --parallel dev:*",
     "dev:server": "NODE_ENV=development nodemon server/server.js",
     "dev:client": "npm run start --prefix client",
-    "build:client": "npm run build --prefix client",
+    "build": "npm run build --prefix client",
     "db:import": "sh database/import.sh",
     "prepare": "husky install"
   },
