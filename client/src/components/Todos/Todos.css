@@ -1,9 +1,23 @@
 .Todos {
   list-style: none;
   padding: 0;
+
+  >li {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
 }
 
-.Todos li {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
+.Note {
+  color: #1e1e1e;
+  font-size: .9rem;
+
+  > a {
+    text-decoration: none;
+    > code {
+      background-color: #efefef;
+      color: #dd0000;
+      padding: .15rem .25rem;
+    }
+  }
 }

@@ -16,12 +16,15 @@ export default function Todos() {
   });
 
   return (
-    <ul className="Todos">
-      {
-        todos.map(({ task, todoId }) => (
-          <li key={todoId}>{task}</li>
-        ))
-      }
-    </ul>
+    <>
+      <ul className="Todos">
+        {
+          todos.map(({ task, todoId }) => (
+            <li key={todoId}>{task}</li>
+          ))
+        }
+      </ul>
+      <p className="Note">* Above list is populated from a Postgres database, from the server API endpoint <a href="/api/todos" target="_blank"><code>/api/todos</code></a></p>
+    </>
   );
 }
