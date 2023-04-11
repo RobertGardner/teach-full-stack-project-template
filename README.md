@@ -103,7 +103,7 @@ A full stack JavaScript solo project.
 1. In your browser navigate to the site you used for your database design.
 1. Export your database as PostgreSQL, this should generate the SQL code for creating your database tables.
     - Reach out to an instructor if you have any issues with this step
-1. Copy the generated SQL code and paste it into the `database/schema.sql` below the preexisting sql code in the file. The end result should look something like *(You will likely have more tables)*:
+1. Copy the generated SQL code and paste it into the `database/schema.sql` below the preexisting sql code in the file. The end result should look something like: *(You will likely have more tables)*
     ```SQL
     set client_min_messages to warning;
 
