@@ -1,8 +1,8 @@
 import 'dotenv/config';
 import express from 'express';
-import cors from 'cors';
 import errorMiddleware from './lib/error-middleware.js';
 import pg from 'pg';
+import path from 'path'
 
 // eslint-disable-next-line no-unused-vars -- Remove when used
 const db = new pg.Pool({
@@ -14,8 +14,13 @@ const db = new pg.Pool({
 
 const app = express();
 
-app.use(cors({ origin: '*' }));
-app.use(express.static('public'));
+// Create paths for static directories
+const reactStaticDir = new URL('../client/build', import.meta.url).pathname;
+const uploadsStaticDir = new URL('public', import.meta.url).pathname;
+
+app.use(express.static(reactStaticDir));
+// Static directory for file uploads server/public/
+app.use(express.static(uploadsStaticDir));
 app.use(express.json());
 
 app.get('/api/hello', (req, res) => {

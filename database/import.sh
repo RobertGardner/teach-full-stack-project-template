@@ -7,7 +7,6 @@ if [ -f "$PWD"/../server/.env ]; then
   . "$PWD"/../server/.env
 else
   echo 'no .env file found' 1>&2
-  exit 1
 fi
 
 if [ -n "$DATABASE_URL" ]; then
