@@ -18,87 +18,44 @@ A full stack JavaScript solo project.
 
 ---
 
-### Clone Newly created repo into `lfz-code` and setup `client` *(React App)*
+### Clone Newly created repo into `lfz-code`
 
 1. From your newly created repo on GitHub, click the green `<> Code` button, then copy **SSH** URL
 1. Open `lfz-code`, click on blue `><` button in bottom left of `lfz-code`
     1. Select `Clone Repository in Container Volume...`
     1. Paste **SSH** URL for your repo, click `Clone git repository from URL`
-1. Create `client` *(React App)*
-    1. From the terminal run `create-react-app`
-        ```
-        npx create-react-app client
-        ```
 1. Copy `.env.example` to `.env`
     ```
     cp server/.env.example server/.env
     ```
-1. Test your client
-    1. In the terminal run
-        ```
-        cd client
-        npm start
-        ```
-    1. Your browser should open to [http://localhost:3000](http://localhost:3000) and you should see the standard starter page from `create-react-app`
-        ![Create React App Starter Page Preview](md.assets/cra-starter-page.png)
-1. Initial setup complete
-    - **NOTE:** Stop the client at this point before moving onto next steps. Press <kbd>Control</kbd> + <kbd>c</kbd> in terminal to stop client
 
 ---
 
-### Run and test full project setup with `client` and `server`
+### Run and test full-stack project setup
 
-1. Replace the code in `client/src/App.js` with the following code:
-    ```JSX
-    import { useEffect, useState } from 'react';
-    import logo from './logo.svg';
-    import './App.css';
+#### Setup Server
 
-    function App() {
-      const [serverData, setServerData] = useState("");
-
-      useEffect(() => {
-        async function getServerData() {
-          const resp = await fetch('/api/hello');
-          const data = await resp.json();
-
-          console.log('Data from server:', data);
-
-          setServerData(data.message);
-        }
-
-        getServerData();
-      }, []);
-
-      return (
-        <div className="App">
-        <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1>{serverData}</h1>
-        </header>
-        </div>
-      );
-    }
-
-    export default App;
-    ```
-1. Take a minute to look over the code to get an idea of what it is doing.
-1. Start your `client` and `server` in separate terminals:
-    ```sh
-    cd client
-    npm start
-    ```
+1. Start your `server`:
     ```sh
     cd server
     npm install
     npm run dev
     ```
-1. Go to [http://localhost:3000](http://localhost:3000) in your browser. You should see the message from the server below the React logo, and in the browsers console
+
+#### Setup Client
+
+1. A React app has already been created for you. Start your `client` in a separate terminal:
+    ```sh
+    cd client
+    npm install
+    npm start
+    ```
+1. Take a minute to look over the code in `client/src/App.js` to get an idea of what it is doing.
+1. Go to [http://localhost:3000](http://localhost:3000) in your browser. You should see the message from the server below the React logo, and in the browsers console.
     ![](md.assets/client-server.png)
 1. If you see the message from the server in your browser you are good to go, your client and server are communicating.
----
 
-### Setup Database
+#### Setup Database
 
 1. In your browser navigate to the site you used for your database design.
 1. Export your database as PostgreSQL, this should generate the SQL code for creating your database tables.
@@ -138,8 +95,8 @@ A full stack JavaScript solo project.
     ```
     pgweb --db name-of-database
     ```
-1. In pgweb you should see your database and tables, if you do not stop here and reach out to an instructor for help
-1. At this point your database is setup and you are good to start using it. However there is no data in your database which isn't necessarily a bad thing, but if you want some starting data in your database you need to add insert statements into the `database/data.sql` file. You can add whatever starting data you need/want. Here is an example:
+1. In pgweb you should see your database and tables; if you do not, stop here and reach out to an instructor for help
+1. At this point your database is setup and you are good to start using it. However there is no data in your database, which isn't necessarily a bad thing, but if you want some starting data in your database you need to add insert statements into the `database/data.sql` file. You can add whatever starting data you need/want. Here is an example:
     ```SQL
     insert into "todos" ("task", "isCompleted")
     values
@@ -147,32 +104,26 @@ A full stack JavaScript solo project.
         ('Build projects', false),
         ('Get a job', false);
     ```
-1. After any changes to `database/schema.sql` or `database/data.sql` re-run the `npm run db:import` command to update your database. Use pgweb to verify any changes were successfully applied
+1. After any changes to `database/schema.sql` or `database/data.sql` re-run the `npm run db:import` command to update your database. Use pgweb to verify your changes were successfully applied
     ![](md.assets/pgweb-with-data.png)
 
 ---
 
 ### Available `npm` commands explained
 
-All `npm` commands should be ran from project root directory, there is **NO** need to run any `npm` commands from the `client` folder. Below is an explanation of all included `npm` commands
+Below is an explanation of all included `npm` commands in the root `package.json`. These are primarily used for deployment purposes and should not be necessary for development.
 
 1. `start`
-    - The `start` script starts the Node server in `production` mode, without any file watchers. This script is primarily used for deployment, and not typically used for development purposes.
-1. `dev:server`
-    - The `dev:server` script starts the Node server in development mode with the `nodemon` file watcher. Any changes to server files will make the server restart. This script is used for development purposes, but is rarely directly used by the developer, it is one of the scripts ran by the `dev` script.
-1. `dev:client`
-    - The `dev:client` script starts the client (React App) in development mode. It builds your react app in memory, and automatically updates when you save any changes in the `client` folder. This command is actually just running the `npm start` command in the context of the `client` folder. Similar to `dev:server` this script is rarely ran directly by the developer, it is primarily used in the `dev` script.
-1. `dev`
-    - The `dev` script starts the Node server and the client by executing the `dev:server` and `dev:client` scripts in parallel. This is the primary script you should use for development, it starts your backend and frontend in a single terminal.
+    - The `start` script starts the Node server in `production` mode, without any file watchers.
 1. `build`
     - The `build` script executes `npm run build` in the context of the `client` folder. This builds your React app for production. This is used during deployment, and not commonly needed during development.
 1. `db:import`
-    - The `npm:import` script executes the `database/schema.sql` file and the `database/data.sql` file to build and populate your database. After any changes to your schema file or data file you need to re-run this command to update your actual database.
+    - The `db:import` script executes `npm db:import` in the context of the `database` folder. This executes the `database/schema.sql` and `database/data.sql` files to build and populate your database.
 1. Not directly used by developer
     1. `preinstall`
-        - The `preinstall` script is automatically ran when you run `npm install`. It is executed before the dependencies are installed. Specifically for this project the `preinstall` script is used to install the `client` dependencies. This is important for deployment purposes, to ensure the `client` dependencies get installed onto the deployment server.
+        - The `preinstall` script is automatically run when you run `npm install`. It is executed before the dependencies are installed. Specifically for this project the `preinstall` script is used to install the `client`  and `server` dependencies. This is important for deployment purposes, to ensure the dependencies get installed onto the deployment server.
     1. `prepare`
-        - The `prepare` script is similar to `preinstall`, it is executed before `preinstall`, and `install`. Specifically for this project it is used to install `husky`
+        - The `prepare` script is similar to `preinstall` – it is executed before `preinstall`, and `install`. Specifically for this project it is used to install `husky`.
 
 ---
 
