@@ -42,7 +42,8 @@
     ],
     "react/jsx-filename-extension": [
       "error"
-    ]
+    ],
+    "comma-dangle": ["error", "only-multiline"]
   },
   "overrides": [
     {
