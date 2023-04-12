@@ -2,7 +2,6 @@ import 'dotenv/config';
 import express from 'express';
 import errorMiddleware from './lib/error-middleware.js';
 import pg from 'pg';
-import path from 'path'
 
 // eslint-disable-next-line no-unused-vars -- Remove when used
 const db = new pg.Pool({
