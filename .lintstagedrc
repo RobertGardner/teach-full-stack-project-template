@@ -2,7 +2,15 @@
   "*.html": [
     "markuplint"
   ],
-  "*.{js,jsx}": [
-    "eslint --fix"
+  "*.css": [
+    "stylelint --fix",
+    "prettier --write"
+  ],
+  "*.{js,jsx,ts,tsx}": [
+    "eslint --fix",
+    "prettier --write"
+  ],
+  "*.{json,md}": [
+    "prettier --write"
   ]
 }

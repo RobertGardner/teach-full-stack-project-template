@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const [serverData, setServerData] = useState("");
+  const [serverData, setServerData] = useState('');
 
   useEffect(() => {
     async function getServerData() {
