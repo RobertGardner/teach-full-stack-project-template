@@ -13,7 +13,6 @@
     "required-h1": false,
     "wai-aria": true,
     "class-naming": "/.+/i",
-    "attr-value-quotes": true,
     "case-sensitive-attr-name": true,
     "case-sensitive-tag-name": true
   },
