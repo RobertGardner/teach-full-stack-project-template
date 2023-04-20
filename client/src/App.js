@@ -6,7 +6,7 @@ function App() {
   const [serverData, setServerData] = useState('');
 
   useEffect(() => {
-    async function getServerData() {
+    async function readServerData() {
       const resp = await fetch('/api/hello');
       const data = await resp.json();
 
@@ -15,7 +15,7 @@ function App() {
       setServerData(data.message);
     }
 
-    getServerData();
+    readServerData();
   }, []);
 
   return (
