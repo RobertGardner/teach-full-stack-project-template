@@ -138,4 +138,4 @@ Below is an explanation of all included `npm` commands in the root `package.json
 
 ## Deployment
 
-Once you are ready, deployment instructions can be found [HERE](https://lms.learningfuze.com/code-guides/Learning-Fuze/curriculum/heroku-deployment)
+Once you are ready, deployment instructions can be found [HERE](https://github.com/Learning-Fuze/lfz-portfolios/tree/master/deploy-to-dokku)
