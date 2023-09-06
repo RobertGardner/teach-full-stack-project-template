@@ -61,8 +61,8 @@ If your final project will _not_ be using a database, edit `package.json` to rem
 #### Verify the client
 
 1. A React app has already been created for you.
-1. Take a minute to look over the code in `client/src/App.js` to get an idea of what it is doing.
-1. Go to [http://localhost:3000](http://localhost:3000) in your browser. You should see the message from the server below the React logo, and in the browser console.
+1. Take a minute to look over the code in `client/src/App.jsx` to get an idea of what it is doing.
+1. Go to the app in your browser. You should see the message from the server below the React logo, and in the browser console.
    ![](md.assets/client-server.png)
 1. If you see the message from the server in your browser you are good to go, your client and server are communicating.
 
@@ -92,7 +92,7 @@ If your final project will _not_ be using a database, edit `package.json` to rem
    );
    ```
 
-   - **NOTE:** Database design websites do not do a perfect job of generating SQL, so you may need to make some adjustments to your SQL for it to work correctly. Reach out to your instructor if you need assistance.
+   - **NOTE:** Database design websites do not do a perfect job of generating SQL, so you may need to make some adjustments to your SQL for it to work correctly. In particular, if using DbDesigner, make sure the double quotes around `"public"."table"` are correct. Reach out to your instructor if you need assistance.
 
 1. In a separate terminal, run `npm run db:import` to create your tables
 1. Use `pgweb` (at `localhost:8081`) to verify your tables were created successfully
@@ -114,7 +114,7 @@ If your final project will _not_ be using a database, edit `package.json` to rem
 
 ### Available `npm` commands explained
 
-Below is an explanation of all included `npm` commands in the root `package.json`. These are primarily used for deployment purposes and should not be necessary for development.
+Below is an explanation of all included `npm` commands in the root `package.json`. Several are only used for deployment purposes and should not be necessary for development.
 
 1. `start`
    - The `start` script starts the Node server in `production` mode, without any file watchers.
@@ -124,11 +124,15 @@ Below is an explanation of all included `npm` commands in the root `package.json
    - The `db:import` script executes `database/import.sh`, which executes the `database/schema.sql` and `database/data.sql` files to build and populate your database.
 1. `dev`
    - Starts all the development servers.
+1. `lint`
+   - Runs ESLint against all the client and server code.
 1. Not directly used by developer
    1. `install:*`
    - These scripts install dependencies in the `client` and `server` folders, and copy `.env.example` to `.env` if it doesn't already exist.
    1. `dev:*`
    - These scripts start the individual development servers.
+   1. `lint:*`
+   - These scripts run lint in the client and server directories.
    1. `postinstall`
       - The `postinstall` script is automatically run when you run `npm install`. It is executed after the dependencies are installed. Specifically for this project the `postinstall` script is used to install the `client` and `server` dependencies.
    1. `prepare`
