@@ -34,6 +34,12 @@ app.get('/api/hello', (req, res) => {
   res.json({ message: 'Hello, World!' });
 });
 
+/*
+ * Middleware that handles paths that aren't handled by static middleware
+ * or API route handlers.
+ * This must be the _last_ non-error middleware installed, after all the
+ * get/post/put/etc. route handlers and just before errorMiddleware.
+ */
 app.use(defaultMiddleware(reactStaticDir));
 
 app.use(errorMiddleware);
