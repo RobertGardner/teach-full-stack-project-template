@@ -7,7 +7,6 @@ import { ClientError, errorMiddleware } from './lib/index.js';
 const connectionString =
   process.env.DATABASE_URL ||
   `postgresql://${process.env.RDS_USERNAME}:${process.env.RDS_PASSWORD}@${process.env.RDS_HOSTNAME}:${process.env.RDS_PORT}/${process.env.RDS_DB_NAME}`;
-// eslint-disable-next-line no-unused-vars -- Remove when used
 const db = new pg.Pool({
   connectionString,
   ssl: {
