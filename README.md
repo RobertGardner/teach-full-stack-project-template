@@ -92,11 +92,10 @@ If your final project will _not_ be using a database, edit `package.json` to rem
    );
    ```
 
-   - **NOTE:** Database design websites do not do a perfect job of generating SQL, so you may need to make some adjustments to your SQL for it to work correctly. In particular, if using DbDesigner, make sure the double quotes around `"public"."table"` are correct. Reach out to your instructor if you need assistance.
+   - **NOTE:** Database design websites do not do a perfect job of generating SQL, so you may need to make some adjustments to your SQL for it to work correctly. Reach out to your instructor if you need assistance.
 
 1. In a separate terminal, run `npm run db:import` to create your tables
-1. Use `pgweb` (at `localhost:8081`) to verify your tables were created successfully
-1. In `pgweb` you should see your database and tables; if you do not, stop here and reach out to an instructor for help
+1. Use `psql` to verify your tables were created successfully (see [LFZ Database Guide](https://lms.learningfuze.com/code-guides/Learning-Fuze/curriculum/database) for tips). Your database and tables should be listed; if not, stop here and reach out to an instructor for help
 1. At this point your database is setup and you are good to start using it. However there is no data in your database, which isn't necessarily a bad thing, but if you want some starting data in your database you need to add insert statements into the `database/data.sql` file. You can add whatever starting data you need/want. Here is an example:
    ```SQL
    insert into "todos" ("task", "isCompleted")
@@ -105,8 +104,7 @@ If your final project will _not_ be using a database, edit `package.json` to rem
        ('Build projects', false),
        ('Get a job', false);
    ```
-1. After any changes to `database/schema.sql` or `database/data.sql` re-run the `npm run db:import` command to update your database. Use `pgweb` to verify your changes were successfully applied
-   ![](md.assets/pgweb-with-data.png)
+1. After any changes to `database/schema.sql` or `database/data.sql` re-run the `npm run db:import` command to update your database. Use `psql` to verify your changes were successfully applied.
 
 **Happy coding!!!!**
 
