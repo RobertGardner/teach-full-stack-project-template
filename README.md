@@ -1,6 +1,6 @@
 # final-project
 
-A full stack JavaScript solo project.
+A full stack TypeScript solo project.
 
 ## Getting Started
 
@@ -10,7 +10,7 @@ A full stack JavaScript solo project.
 
 1. Click the green `Use this template` button, select `Create a new repository`
    1. Under `Owner` select your username
-   1. Give your repository a name
+   1. Give your repository a name. Name it after your application. The name `final-project` is _not_ a good name.
    1. (Optional) Add a description
    1. Leave repository as `Public`
    1. **DO NOT** Include all branches
