@@ -104,7 +104,9 @@ If your final project will _not_ be using a database, edit `package.json` to rem
    ```
 1. After any changes to `database/schema.sql` or `database/data.sql` re-run the `npm run db:import` command to update your database. Use `psql` to verify your changes were successfully applied.
 
-**Happy coding!!!!**
+## Deployment
+
+Once your template is set up and functional, deploy it. This will get all the deployment issues ironed out early. During development, you should re-deploy frequently to make sure that your code works properly in your production environment. Deployment instructions can be found [HERE](https://github.com/Learning-Fuze/lfz-portfolios/tree/master/deploy-to-elastic-beanstalk)
 
 ---
 
@@ -135,9 +137,3 @@ Below is an explanation of all included `npm` commands in the root `package.json
       - The `prepare` script is similar to `postinstall` — it is executed before `install`. Specifically for this project it is used to install `husky`.
    1. `deploy`
       - The `deploy` script is used to deploy the project by pushing the `main` branch to the `pub` branch, which triggers the GitHub Action that deploys the project.
-
----
-
-## Deployment
-
-Once you are ready, deployment instructions can be found [HERE](https://github.com/Learning-Fuze/lfz-portfolios/tree/master/deploy-to-elastic-beanstalk)
