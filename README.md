@@ -1,4 +1,4 @@
-# final-project
+# full-stack-project
 
 A full stack TypeScript solo project.
 
@@ -10,7 +10,7 @@ A full stack TypeScript solo project.
 
 1. Click the green `Use this template` button, select `Create a new repository`
    1. Under `Owner` select your username
-   1. Give your repository a name. Name it after your application. The name `final-project` is _not_ a good name.
+   1. Give your repository a name. Name it after your application. The name `full-stack-project` is _not_ a good name.
    1. (Optional) Add a description
    1. Leave repository as `Public`
    1. **DO NOT** Include all branches
@@ -27,7 +27,7 @@ A full stack TypeScript solo project.
 
 ---
 
-### Run and test full-stack project setup
+### Run and test project setup
 
 #### Getting Started
 
@@ -35,7 +35,7 @@ A full stack TypeScript solo project.
 
 #### Create the database
 
-If your final project will be using a database, create it now.
+If your project will be using a database, create it now.
 
 1. Start PostgreSQL
    ```sh
@@ -49,7 +49,7 @@ If your final project will be using a database, create it now.
 1. While you are editing `server/.env`, also change the value of `TOKEN_SECRET` to a custom value, without spaces.
 1. Make the same changes to `server/.env.example`.
 
-If your final project will _not_ be using a database, edit `package.json` to remove the `dev:db` script.
+If your project will _not_ be using a database, edit `package.json` to remove the `dev:db` script.
 
 #### Start the development servers
 
