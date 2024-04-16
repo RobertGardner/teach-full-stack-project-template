@@ -85,10 +85,10 @@ If your project will _not_ be using a database, edit `package.json` to remove th
 
    create table "todos" (
        "todoId"      serial PRIMARY KEY,
-       "task"        text           not null,
-       "isCompleted" boolean        not null,
-       "createdAt"   timestamptz(6) not null default now(),
-       "updatedAt"   timestamptz(6) not null default now()
+       "task"        text not null,
+       "isCompleted" boolean not null,
+       "createdAt"   timestamptz not null DEFAULT now(),
+       "updatedAt"   timestamptz not null DEFAULT now()
    );
    ```
 
