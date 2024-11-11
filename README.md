@@ -23,6 +23,7 @@ A full stack TypeScript solo project.
 1. From your newly created repo on GitHub, click the green `<> Code` button, then copy **SSH** URL
 1. Open `lfz-code`, click on blue `><` button in bottom left of `lfz-code`
    1. Select `Clone Repository in Container Volume...`
+      - If this option does not appear, open the Command Palette (cmd-shift-P on Mac or ctrl-shift-P on Windows), type "Dev Containers", and select `Clone Repository in Container Volume...`. Then continue to the next step.
    1. Paste **SSH** URL for your repo, click `Clone git repository from URL`
 
 ---
