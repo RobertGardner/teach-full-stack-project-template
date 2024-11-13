@@ -125,6 +125,8 @@ Below is an explanation of all included `npm` commands in the root `package.json
    - Starts all the development servers.
 1. `lint`
    - Runs ESLint against all the client and server code.
+1. `tsc`
+   - Runs the TypeScript compiler against all the client and server code.
 1. Not directly used by developer
    1. `install:*`
    - These scripts install dependencies in the `client` and `server` folders, and copy `.env.example` to `.env` if it doesn't already exist.
@@ -132,6 +134,8 @@ Below is an explanation of all included `npm` commands in the root `package.json
    - These scripts start the individual development servers.
    1. `lint:*`
    - These scripts run lint in the client and server directories.
+   1. `tsc:*`
+   - These scripts run tsc in the client and server directories.
    1. `postinstall`
       - The `postinstall` script is automatically run when you run `npm install`. It is executed after the dependencies are installed. Specifically for this project the `postinstall` script is used to install the `client` and `server` dependencies.
    1. `prepare`

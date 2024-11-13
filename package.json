@@ -18,6 +18,9 @@
     "lint:client": "npm run lint --prefix client",
     "lint:server": "npm run lint --prefix server",
     "lint": "npm-run-all --parallel lint:*",
+    "tsc:client": "tsc --project client",
+    "tsc:server": "tsc --project server",
+    "tsc": "npm-run-all --continue-on-error tsc:*",
     "prepare": "husky install",
     "deploy": "git push --force origin main:pub"
   },
