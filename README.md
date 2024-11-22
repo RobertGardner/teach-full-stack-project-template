@@ -125,6 +125,8 @@ Below is an explanation of all included `npm` commands in the root `package.json
    - Starts all the development servers.
 1. `lint`
    - Runs ESLint against all the client and server code.
+1. `psql`
+   - When used on the EC2 instance, runs `psql` attached to the project database. Helpful for debugging issues with the database.
 1. `tsc`
    - Runs the TypeScript compiler against all the client and server code.
 1. Not directly used by developer
