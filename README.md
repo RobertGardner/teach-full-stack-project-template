@@ -48,7 +48,7 @@ If your project will be using a database, create it now.
    ```
 1. In the `server/.env` file, in the `DATABASE_URL` value, replace `changeMe` with the name of your database, from the last step
 1. While you are editing `server/.env`, also change the value of `TOKEN_SECRET` to a custom value, without spaces.
-1. Make the same changes to `server/.env.example`.
+1. Make the same changes to `server/.env.example`. (Don't worry about the `TOKEN_SECRET`, this value is used only during development. When you deploy, you will provide a different value using the AWS Secrets Manager.)
 
 If your project will _not_ be using a database, edit `package.json` to remove the `dev:db` script.
 
@@ -94,7 +94,7 @@ If your project will _not_ be using a database, edit `package.json` to remove th
    ```
 
 1. In a separate terminal, run `npm run db:import` to create your tables
-1. Use `psql` to verify your tables were created successfully (see [LFZ Database Guide](https://lms.learningfuze.com/code-guides/Learning-Fuze/curriculum/database) for tips). Your database and tables should be listed; if not, stop here and reach out to an instructor for help
+1. Use `pgweb` or `psql` to verify your tables were created successfully (see [LFZ Database Guide](https://lms.learningfuze.com/code-guides/Learning-Fuze/curriculum/Database_PostgreSQL-Commands) for tips). Your database and tables should be listed; if not, stop here and reach out to an instructor for help
 1. At this point your database is setup and you are good to start using it. However there is no data in your database, which isn't necessarily a bad thing, but if you want some starting data in your database you need to add insert statements into the `database/data.sql` file. You can add whatever starting data you need/want. Here is an example:
    ```SQL
    insert into "todos" ("task", "isCompleted")
@@ -103,7 +103,7 @@ If your project will _not_ be using a database, edit `package.json` to remove th
        ('Build projects', false),
        ('Get a job', false);
    ```
-1. After any changes to `database/schema.sql` or `database/data.sql` re-run the `npm run db:import` command to update your database. Use `psql` to verify your changes were successfully applied.
+1. After any changes to `database/schema.sql` or `database/data.sql` re-run the `npm run db:import` command to update your database. Use `pgweb` or `psql` to verify your changes were successfully applied.
 
 ## Deployment
 
