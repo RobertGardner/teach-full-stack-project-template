@@ -93,7 +93,7 @@ If your project will be using a database, create it now.
    ```
 
 1. In a separate terminal, run `npm run db:import` to create your tables
-1. Use `pgAdmin` or `psql` to verify your tables were created successfully (see [LFZ Database Guide](https://lms.learningfuze.com/code-guides/Learning-Fuze/curriculum/Database_PostgreSQL-Commands) for tips). Your database and tables should be listed; if not, stop here and reach out to an instructor for help
+1. Use `pgAdmin` or `psql` to verify your tables were created successfully. Your database and tables should be listed; if not, stop here and reach out to an instructor for help
 1. At this point your database is setup and you are good to start using it. However there is no data in your database, which isn't necessarily a bad thing, but if you want some starting data in your database you need to add insert statements into the `database/data.sql` file. You can add whatever starting data you need/want. Here is an example:
    ```SQL
    insert into "todos" ("task", "isCompleted")
@@ -106,7 +106,7 @@ If your project will be using a database, create it now.
 
 ## Deployment
 
-Once your template is set up and functional, deploy it. This will get all the deployment issues ironed out early. During development, you should re-deploy frequently to make sure that your code works properly in your production environment. Deployment instructions can be found [HERE](https://lms.learningfuze.com/code-guides/Learning-Fuze/curriculum/Full-Stack-Project_Deploy-To-EC2)
+Once your template is set up and functional, deploy it. This will get all the deployment issues ironed out early. During development, you should re-deploy frequently to make sure that your code works properly in your production environment. Deployment instructions can be found in the Full-Stack-Project_Deploy-To-EC2 Guide.
 
 ---
 
