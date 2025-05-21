@@ -4,12 +4,8 @@ import express from 'express';
 import pg from 'pg';
 import { ClientError, errorMiddleware } from './lib/index.js';
 
-const db = new pg.Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-});
+if (!process.env.PGDATABASE) throw new Error('PGDATABASE is not set');
+const db = new pg.Pool();
 
 const app = express();
 

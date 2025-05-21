@@ -11,11 +11,11 @@ else
   exit 1
 fi
 
-if [ -n "$DATABASE_URL" ]; then
-  psql "$DATABASE_URL" \
+if [ -n "$PGDATABASE" ]; then
+  psql "$PGDATABASE" \
     -f "$wd"/schema.sql \
     -f "$wd"/data.sql
 else
-  echo 'no DATABASE_URL environment variable set' 1>&2
+  echo 'no PGDATABASE environment variable set' 1>&2
   exit 1
 fi
