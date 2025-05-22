@@ -12,7 +12,8 @@ else
 fi
 
 if [ -n "$PGDATABASE" ]; then
-  psql "$PGDATABASE" \
+  DATABASE_URL=postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$PGDATABASE
+  psql "$DATABASE_URL" \
     -f "$wd"/schema.sql \
     -f "$wd"/data.sql
 else

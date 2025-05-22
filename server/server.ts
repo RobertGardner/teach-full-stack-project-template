@@ -5,7 +5,11 @@ import pg from 'pg';
 import { ClientError, errorMiddleware } from './lib/index.js';
 
 if (!process.env.PGDATABASE) throw new Error('PGDATABASE is not set');
-const db = new pg.Pool();
+const db = new pg.Pool({
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
 
 const app = express();
 
